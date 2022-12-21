@@ -59,23 +59,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-    respond_to :json
-  
+  respond_to :json
+
   private
 
   def respond_with(resource, options={})
     if resource.persisted?
       render json: {
-        status: { code: 200, message: 'Signed up successfully', 
-        data: resource }
+        status: { code: 200, message: 'Signed up successfully', data: resource }
       }, status: :ok
-    else 
+    else
       render json: {
-        status: {message: 'User could not be created successfully', errors: resource.errors.full_messages }, status: :unprocessable_entity
+        status: { message: 'User could not be created successfully', errors: resource.errors.full_messages }, status: :unprocessable_entity
       }
     end
-
   end
-
 
 end

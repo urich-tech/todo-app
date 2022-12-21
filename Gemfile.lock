@@ -156,6 +156,7 @@ GEM
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.4.5)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -184,6 +185,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.4)
       loofah (~> 2.19, >= 2.19.1)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (7.0.4)
       actionpack (= 7.0.4)
       activesupport (= 7.0.4)
@@ -286,9 +292,11 @@ DEPENDENCIES
   factory_bot_rails
   importmap-rails
   jbuilder
+  pg
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4)
+  rails_12factor
   rspec-rails (>= 4.0.1)
   sassc-rails
   selenium-webdriver

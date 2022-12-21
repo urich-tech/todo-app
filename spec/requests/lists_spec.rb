@@ -12,41 +12,23 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-
-=begin
 RSpec.describe "/lists", type: :request do
+  
   # This should return the minimal set of attributes required to create a valid
   # List. As you add validations to List, be sure to
   # adjust the attributes here as well.
+  let(:valid_attributes) {
+    skip("Add a hash of attributes valid for your model")
+  }
 
-  let(:valid_attributes) do
-    {
-      
-      'name_of_list' => 'Running',      
-      'public_view' => false
-    }
-  end
-
-  let(:invalid_attributes) do
-    {
-      
-      'name_of_list' => 1234,      
-      'public_view' => 'Studying'
-    }
-  end
-
-  # This should return the minimal set of values that should be in the headers
-  # in order to pass any filters (e.g. authentication) defined in
-  # ListsController, or in your router and rack
-  # middleware. Be sure to keep this updated too.
-  let(:valid_headers) {
-    {}
+  let(:invalid_attributes) {
+    skip("Add a hash of attributes invalid for your model")
   }
 
   describe "GET /index" do
     it "renders a successful response" do
       List.create! valid_attributes
-      get lists_url, headers: valid_headers, as: :json
+      get lists_url
       expect(response).to be_successful
     end
   end
@@ -54,7 +36,22 @@ RSpec.describe "/lists", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       list = List.create! valid_attributes
-      get list_url(list), as: :json
+      get list_url(list)
+      expect(response).to be_successful
+    end
+  end
+
+  describe "GET /new" do
+    it "renders a successful response" do
+      get new_list_url
+      expect(response).to be_successful
+    end
+  end
+
+  describe "GET /edit" do
+    it "renders a successful response" do
+      list = List.create! valid_attributes
+      get edit_list_url(list)
       expect(response).to be_successful
     end
   end
@@ -63,33 +60,29 @@ RSpec.describe "/lists", type: :request do
     context "with valid parameters" do
       it "creates a new List" do
         expect {
-          post lists_url,
-               params: { list: valid_attributes }, headers: valid_headers, as: :json
+          post lists_url, params: { list: valid_attributes }
         }.to change(List, :count).by(1)
       end
 
-      it "renders a JSON response with the new list" do
-        post lists_url,
-             params: { list: valid_attributes }, headers: valid_headers, as: :json
-        expect(response).to have_http_status(:created)
-        expect(response.content_type).to match(a_string_including("application/json"))
+      it "redirects to the created list" do
+        post lists_url, params: { list: valid_attributes }
+        expect(response).to redirect_to(list_url(List.last))
       end
     end
 
     context "with invalid parameters" do
       it "does not create a new List" do
         expect {
-          post lists_url,
-               params: { list: invalid_attributes }, as: :json
+          post lists_url, params: { list: invalid_attributes }
         }.to change(List, :count).by(0)
       end
 
-      it "renders a JSON response with errors for the new list" do
-        post lists_url,
-             params: { list: invalid_attributes }, headers: valid_headers, as: :json
+    
+      it "renders a response with 422 status (i.e. to display the 'new' template)" do
+        post lists_url, params: { list: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to match(a_string_including("application/json"))
       end
+    
     end
   end
 
@@ -101,29 +94,27 @@ RSpec.describe "/lists", type: :request do
 
       it "updates the requested list" do
         list = List.create! valid_attributes
-        patch list_url(list),
-              params: { list: new_attributes }, headers: valid_headers, as: :json
+        patch list_url(list), params: { list: new_attributes }
         list.reload
         skip("Add assertions for updated state")
       end
 
-      it "renders a JSON response with the list" do
+      it "redirects to the list" do
         list = List.create! valid_attributes
-        patch list_url(list),
-              params: { list: new_attributes }, headers: valid_headers, as: :json
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to match(a_string_including("application/json"))
+        patch list_url(list), params: { list: new_attributes }
+        list.reload
+        expect(response).to redirect_to(list_url(list))
       end
     end
 
     context "with invalid parameters" do
-      it "renders a JSON response with errors for the list" do
+    
+      it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         list = List.create! valid_attributes
-        patch list_url(list),
-              params: { list: invalid_attributes }, headers: valid_headers, as: :json
+        patch list_url(list), params: { list: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to match(a_string_including("application/json"))
       end
+    
     end
   end
 
@@ -131,9 +122,14 @@ RSpec.describe "/lists", type: :request do
     it "destroys the requested list" do
       list = List.create! valid_attributes
       expect {
-        delete list_url(list), headers: valid_headers, as: :json
+        delete list_url(list)
       }.to change(List, :count).by(-1)
+    end
+
+    it "redirects to the lists list" do
+      list = List.create! valid_attributes
+      delete list_url(list)
+      expect(response).to redirect_to(lists_url)
     end
   end
 end
-=end

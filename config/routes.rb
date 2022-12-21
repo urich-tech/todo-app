@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  resources :lists
   get 'pages/home'
   get 'pages/contact'
-  resources :lists
-  resources :list_items
+  resources :list_items 
   devise_for :users, controllers: {
   	sessions: 'users/sessions',
   	registrations: 'users/registrations'

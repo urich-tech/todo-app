@@ -18,9 +18,13 @@ module TodoDemo1
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.api_only = true
+    
+    ###config.api_only = true
     config.session_store :cookie_store, key: '_interslice_session'
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use config.session_store, config.session_options
+
+    #needed for running with postman test    
+    config.action_controller.default_protect_from_forgery = false # unless ENV["RAILS_ENV"] == "production"
   end
 end

@@ -1,11 +1,12 @@
 class ListItemsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_list_item, only: %i[ show edit update destroy ]
 
   # GET /list_items or /list_items.json
   def index
    # @list_items = ListItem.all
-   @list_items = ListItem.by_user(current_user)
+   #@list_items = ListItem.by_user(current_user)
+   @list_items = ListItem.all
   end
 
   # GET /list_items/1 or /list_items/1.json
@@ -63,7 +64,8 @@ class ListItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list_item
-      @list_item = ListItem.by_user(current_user).find(params[:id])
+    #  @list_item = ListItem.by_user(current_user).find(params[:id])
+      @list_item = ListItem.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
