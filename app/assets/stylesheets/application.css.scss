@@ -1,0 +1,149 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ *= require_self
+ */
+@import "adminlte";
+@import "home";  
+
+
+/*can comment out later*/
+
+
+
+.wrapper1 {
+  position: relative;
+  ////Background for main
+  ////background-color: #D3F0E0;
+   background-color: #f3f6f4;
+}
+
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  
+  text-align: center;
+  font-family: arial;
+}
+
+
+  /* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 210px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  ////Background color
+  ///background-color: #EFF8F8; /* Black */
+  background-color: #ffffff; /* Black */
+  
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  ////text color
+////  color: #00A380;
+  color: #000000;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #979797;
+}
+
+/* Style page content */
+.main {
+  margin-left: 210px; /* Same as the width of the sidebar */
+ margin-top: 7px; 
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} 
+
+
+ .center {
+    text-align: center;
+}
+
+
+
+/* Footer */
+.footer1 {
+    max-width: 100%;
+    margin: 1rem auto;
+    overflow: auto;
+}
+
+
+.footer1, .footer1 a {
+////     color: #00A380;
+   
+color: #000000;
+    font-size: 0.9rem;
+}
+
+.footer1 p {
+    margin: 1.5rem;
+
+}
+
+
+.footer1 ul {
+   list-style: none;
+
+}
+.footer1 .footer1-cols {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2rem;
+}
+
+.footer1 li {
+    line-height: 1.9;
+}
+
+.footer1 li:hover {
+   
+}
+
+
+
+
+
+/* Footer */
+#main-footer1 {
+    color: #ccc;
+    text-align: center;
+    font-size: 0.4rem;
+    max-width: 100%;
+    padding-top: 5rem;
+
+}
+
+
+#main-footer1 a {
+    color: #000000;
+    text-decoration: underline;
+}

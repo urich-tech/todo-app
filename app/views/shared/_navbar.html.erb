@@ -1,31 +1,28 @@
-<nav class="navbar fixed-top navbar-expand-lg">
-     <a class="navbar-brand" href="/">
-           <%= image_tag "logo1.png" %>
-     </a>
-      <%= link_to "TODOapp", root_path, class: "nav-link" %>
-
+<nav class="main-header navbar navbar-expand navbar-white navbar-light text-sm">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <!-- Navbar brand -->
-    <%= link_to "Home", root_path, class: "nav-link" %>
-    <!-- Toggle button -->
+        <a href="../../index3.html" class="nav-link">Home</a>
       </li>
-      
       <li class="nav-item d-none d-sm-inline-block">
-         <%= link_to "Contact", pages_contact_path, class: "nav-link" %>
+        <a href="#" class="nav-link">Contact</a>
       </li>
-      
-      <li class="nav-item d-none d-sm-inline-block">
-         <%= link_to "TODO Activity List", pages_show_path, class: "nav-link" %>
-      </li>
-
     </ul>
 
-  
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -51,11 +48,10 @@
        </li>
      
               <% if (!user_signed_in?) %>
+                   <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
+               
+                   <li class="nav-item"><%= link_to "Sign in", new_user_session_path, class: "btn btn-primary"%></li>
 
-              <div class="d-flex align-items-center">
-                <%= link_to "Login", new_user_session_path, class:"nav-link px-3 me-2" %>
-                <%= link_to "Sign up", new_user_registration_path, class:"btn btn-outline-primary me-3" %>
-              </div>
 
               <% else %>
               

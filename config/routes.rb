@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :lists
   get 'pages/home'
   get 'pages/contact'
+  get 'pages/show'
   resources :list_items 
   devise_for :users, controllers: {
   	sessions: 'users/sessions',
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
   
   # Defines the root path route ("/")
   # root "articles#index"
-  root "list_items#index"
+  root 'pages#home'
 end

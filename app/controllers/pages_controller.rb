@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def show
+  	@lists = List.all
+  end
 end

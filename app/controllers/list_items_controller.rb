@@ -1,5 +1,5 @@
 class ListItemsController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_list_item, only: %i[ show edit update destroy ]
 
   # GET /list_items or /list_items.json
