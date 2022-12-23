@@ -98,6 +98,8 @@ GEM
       devise (~> 4.0)
       warden-jwt_auth (~> 0.6)
     diff-lcs (1.5.0)
+    discard (1.2.1)
+      activerecord (>= 4.2, < 8)
     dry-auto_inject (0.9.0)
       dry-container (>= 0.3.4)
     dry-configurable (0.16.1)
@@ -289,6 +291,7 @@ DEPENDENCIES
   debug
   devise (~> 4.8)
   devise-jwt
+  discard (~> 1.2)
   factory_bot_rails
   importmap-rails
   jbuilder

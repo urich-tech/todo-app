@@ -85,3 +85,4 @@ gem "devise", "~> 4.8"
 
 gem 'devise-jwt'
 gem "rack-cors"
+gem "discard", "~> 1.2"

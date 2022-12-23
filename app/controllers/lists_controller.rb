@@ -34,10 +34,16 @@ class ListsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /lists/1 or /lists/1.json
+  # PATCH/PUT /lists/1 or /lists/1.json 
   def update
+  
+  # the added restore of deleted item
+   # @list.discarded_at =nil if params.dig(:restore)
+
+    
     respond_to do |format|
       if @list.update(list_params)
+  
         format.html { redirect_to list_url(@list), notice: "List was successfully updated." }
         format.json { render :show, status: :ok, location: @list }
       else
@@ -49,7 +55,11 @@ class ListsController < ApplicationController
 
   # DELETE /lists/1 or /lists/1.json
   def destroy
-    @list.destroy
+    if @list.discarded?
+       @list.destroy
+    else
+      @list.discard
+    end
 
     respond_to do |format|
       format.html { redirect_to lists_url, notice: "List was successfully destroyed." }

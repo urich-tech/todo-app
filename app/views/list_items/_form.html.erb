@@ -21,6 +21,11 @@
     <%= form.text_area :description %>
   </div>
 
+   <%= content_tag :div, class: 'field' do %>
+      <%= check_box_tag :restore %>
+      Restore Deleted Record
+  <% end if list_item.discarded? %>
+
   <div>
     <%= form.submit %>
   </div>

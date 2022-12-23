@@ -74,7 +74,7 @@
 
                   <tbody>
                     <% @lists.each do |list| %>
-                    <% if (list.public_view == true) %>
+                    <% if (list.public_view == true && discarded_at == nil ) %>
                       <tr>
                       	 
                         <td><%= list.name_of_list %></td>

@@ -1,11 +1,11 @@
 class ListItemsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_list_item, only: %i[ show edit update destroy ]
 
   # GET /list_items or /list_items.json
   def index
    # @list_items = ListItem.all
-   #@list_items = ListItem.by_user(current_user)
+   #@list_items = ListItem.by_user(current_user) 
    @list_items = ListItem.all
   end
 
@@ -40,6 +40,7 @@ class ListItemsController < ApplicationController
 
   # PATCH/PUT /list_items/1 or /list_items/1.json
   def update
+   # @list_item.discarded_at= nil if params.dig(:restore)
     respond_to do |format|
       if @list_item.update(list_item_params)
         format.html { redirect_to list_item_url(@list_item), notice: "List item was successfully updated." }
@@ -53,8 +54,11 @@ class ListItemsController < ApplicationController
 
   # DELETE /list_items/1 or /list_items/1.json
   def destroy
-    @list_item.destroy
-
+    if @list_item.discarded? 
+     @list_item.destroy
+    else
+      @list_item.discard
+    end
     respond_to do |format|
       format.html { redirect_to list_items_url, notice: "List item was successfully destroyed." }
       format.json { head :no_content }

@@ -21,6 +21,11 @@
     <%= form.check_box :public_view %>
   </div>
 
+  <%= content_tag :div, class: 'field' do %>
+      <%= check_box_tag :restore %>
+      Restore Deleted Record
+  <% end if list.discarded? %>
+  
   <div>
     <%= form.submit %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_20_235552) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_23_165946) do
   create_table "list_items", force: :cascade do |t|
     t.string "short_name"
     t.boolean "completion_status"
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_20_235552) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_list_items_on_discarded_at"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -25,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_20_235552) do
     t.boolean "public_view"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_lists_on_discarded_at"
   end
 
   create_table "users", force: :cascade do |t|
