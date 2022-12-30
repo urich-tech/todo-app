@@ -1,5 +1,6 @@
 class ListItemsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_list
   before_action :set_list_item, only: %i[ show edit update destroy ]
 
   # GET /list_items or /list_items.json
@@ -11,6 +12,7 @@ class ListItemsController < ApplicationController
 
   # GET /list_items/1 or /list_items/1.json
   def show
+ 
   end
 
   # GET /list_items/new
@@ -26,10 +28,11 @@ class ListItemsController < ApplicationController
   def create
     @list_item = ListItem.new(list_item_params)
     @list_item.user = current_user
+    @list_item.list_id = @list.id
 
     respond_to do |format|
       if @list_item.save
-        format.html { redirect_to list_item_url(@list_item), notice: "List item was successfully created." }
+        format.html { redirect_to @list, notice: "List item was successfully created." }
         format.json { render :show, status: :created, location: @list_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -66,6 +69,10 @@ class ListItemsController < ApplicationController
   end
 
   private
+
+    def  set_list
+      @list = List.find(params[:list_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_list_item
     #  @list_item = ListItem.by_user(current_user).find(params[:id])
