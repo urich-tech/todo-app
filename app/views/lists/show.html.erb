@@ -84,8 +84,9 @@
 							<td><%= list_item.short_name %></td>
 							<td><%= list_item.description %></td>
 							<td><%= list_item.completion_status %></td>
-					
-							
+						
+					<td><%= link_to 'Edit', edit_list_list_item_path(@list, list_item), class: "btn btn-link" %></td>
+				
 						</tr>
 
 						<% end %>
