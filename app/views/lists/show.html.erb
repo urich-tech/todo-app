@@ -1,34 +1,145 @@
+ <!-- Side navigation -->
+<div class="sidenav">
 
-<div class = "row">
-
-	<div class="col-md-3">
-<p style="color: green"><%= notice %></p>
-
-<%= render @list %>
-
-
-<%= link_to "Write a TODO item", new_list_list_item_path(@list), class: "btn btn-primary"%>
-
-<div>
-  <%= link_to "Edit this list", edit_list_path(@list) %> |
-  <%= link_to "Back to lists", lists_path %>
-
-  <%= button_to "Destroy this list", @list, method: :delete %>
-</div>
-</div>
-
-<div class="col-md-9">
-	<% if @list_items.blank? %>
-	   <h2>No Todo Items. Be first to write one</h2>
-    <% else %>
-    <% @list_items.each do |list_item| %>
-		<p><%= list_item.short_name %></p>
-		<p><%= list_item.description %></p>
-		<p><%= list_item.completion_status %></p>
-
-	<% end %>
-<% end %>
+  <a class="" href="/">
+           <%= image_tag "logo1.png" %>
+  </a>
+  <div class="dropdown-divider"></div>
+  <a href="/shops">FAQ</a>
+  <div class="dropdown-divider"></div>
+  <a href="#">Help</a>
 
 </div>
 
+
+<!-- Page content -->
+<div class="main">
+<%= render 'partials/header' %>
+
+<div class="wrapper1" style="min-height: 690px;">
+
+
+
+		<section class="content-header">
+		      <div class="container-fluid">
+		        <div class="row mb-2">
+		          <div class="col-sm-6">
+		           
+		          </div>
+		          <div class="col-sm-6">
+		            <ol class="breadcrumb float-sm-right">
+		             <li class="breadcrumb-item"><a href="/">Home</a></li>
+		             <li class="breadcrumb-item active"><a href= "/shops">Shops</a></li>
+		            </ol>
+		          </div>
+		        </div>
+		      </div><!-- /.container-fluid -->
+		    </section>
+		<section class="content">
+
+      <div class="container-fluid">
+
+       
+      
+
+
+        <div class="row">
+          <div class="col-12">
+            <!-- Default box -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">List of activities:</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+               
+             <p id="notice"><%= notice %></p>                             
+
+				
+				<div class = "container center" ><%= render @list %>
+				</div>
+				<br>
+
+				    <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Todo Activity</th>
+                      <th>Description</th>
+                      <th>Completion Status</th>
+                      <th colspan="4"></th>	
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                  	<% if @list_items.blank? %>
+						   <h5>Please add a Todo task to complete</h5>
+					    <% else %>
+					    <% @list_items.each do |list_item| %>
+					     <tr>
+							<td><%= list_item.short_name %></td>
+							<td><%= list_item.description %></td>
+							<td><%= list_item.completion_status %></td>
+					
+							
+						</tr>
+
+						<% end %>
+					<% end %>
+                  
+
+                  
+                  </tbody>
+                
+                </table>
+
+                <br>
+
+                  <%= link_to "Add TODO item", new_list_list_item_path(@list), class: "btn btn-primary"%>
+                  <br>
+                <br>
+                   <%= link_to "Privacy setting", edit_list_path(@list) %> |
+  				   <%= link_to "Back to lists", lists_path %>  |
+  				   <%= link_to "Delete", @list, method: :delete %> 
+  				   <br>
+  				   <br>
+                 
+        <br>
+				
+
+              </div>
+
+  
+
+              <!-- /.card-body -->
+              <div class="card-footer">
+
+                <div class="p-2 text-xs">
+                  <div class="pull-right text-muted py-1">
+                    © Copyright <strong>TODOapp.com.</strong> <span class="hidden-xs-down">- Built with care!!</span>
+                    <a ui-scroll-to="content"><i class="fa fa-long-arrow-up p-x-sm"></i></a>
+                  </div>
+          
+                </div>
+              </div>
+              <!-- /.card-footer-->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+</div> 
+
+
+
 </div>
+
+
+
+

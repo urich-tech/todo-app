@@ -1,5 +1,5 @@
 class ListItemsController < ApplicationController
-  before_action :authenticate_user!
+ # before_action :authenticate_user!
   before_action :set_list
   before_action :set_list_item, only: %i[ show edit update destroy ]
 
@@ -12,7 +12,7 @@ class ListItemsController < ApplicationController
 
   # GET /list_items/1 or /list_items/1.json
   def show
- 
+
   end
 
   # GET /list_items/new
@@ -46,7 +46,7 @@ class ListItemsController < ApplicationController
    # @list_item.discarded_at= nil if params.dig(:restore)
     respond_to do |format|
       if @list_item.update(list_item_params)
-        format.html { redirect_to list_item_url(@list_item), notice: "List item was successfully updated." }
+        format.html { redirect_to @list, notice: "List item was successfully updated." }
         format.json { render :show, status: :ok, location: @list_item }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -81,6 +81,6 @@ class ListItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_item_params
-      params.require(:list_item).permit(:short_name, :description)
+      params.require(:list_item).permit(:short_name, :description, :completion_status)
     end
 end
