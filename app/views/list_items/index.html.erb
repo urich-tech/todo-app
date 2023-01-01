@@ -85,9 +85,9 @@
                         <td><%= list_item.description %></td>
                         <td><%= list_item.completion_status %></td>
                         <td><%= list_item.discarded? ? '✓': ' ' %></td>
-                        <td><%= link_to 'Show', list_item %></td>
-                        <td><%= link_to 'Edit', edit_list_item_path(list_item) %></td>
-                        <td><%= link_to 'Destroy', list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Show', list_item, class: "btn btn-link" %></td>
+                        <td><%= link_to 'Edit', edit_list_item_path(list_item), class: "btn btn-link" %></td>
+                        <td><%= link_to 'Destroy', list_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
                       </tr>
               
                     <% end %>
@@ -95,7 +95,7 @@
                 </table>
 </div>
 
-<%= link_to "New list item", new_list_item_path %>
+<%= link_to "New list item", new_list_item_path , class: "btn btn-link"%>
 
 
 
