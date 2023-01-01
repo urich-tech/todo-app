@@ -77,7 +77,7 @@
                     <% if (list.public_view == true ) %>
                       <tr>
                       	 
-                        <td><%= list.name_of_list %></td>
+                        <td><%= link_to list.name_of_list, list %></td>
                         <td><%= list.public_view %></td>
                         <td><%= link_to 'Show', list , class: "btn btn-link" %></td>
                         
