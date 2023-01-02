@@ -59,8 +59,8 @@ type in command prompt: rspec
 
 * Deployment instructions
 
-* ...
 # todo-app-jwt-authentication
+
 
 username: jondoe2@gmail.com
 
