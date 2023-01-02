@@ -63,4 +63,5 @@ type in command prompt: rspec
 # todo-app-jwt-authentication
 
 username: jondoe2@gmail.com
+
 password: jondoe2
