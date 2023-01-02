@@ -1,5 +1,5 @@
 # README
-This is todo app used for creating task. It can be hosted on heroku using a postgresql database. It implements soft deletes.
+This is todo app used for creating task. It can be hosted on heroku using a postgresql database. It implements soft deletes, CRUD structure(thats is crea read update and delete) for data.
 
 
 
