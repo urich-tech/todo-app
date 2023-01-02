@@ -1,7 +1,7 @@
 # README
+This is todo app used for creating task. It can be hosted on heroku using a postgresql database. It implements soft deletes.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+
 
 Front page
 ![Screenshot_2023-01-01 TODOapp com Create TODO items activities](https://user-images.githubusercontent.com/69471917/210251856-e31f69ef-b473-4d64-b54d-d2f377d6681a.png)
@@ -31,6 +31,7 @@ Things you may want to cover:
 Ruby 3.0.3
 
 * System dependencies
+rails 7.0.4
 
 * Configuration
 
