@@ -62,15 +62,20 @@ type in command prompt: rspec
 # todo-app-jwt-authentication
 
 User Login details
+
 username: jondoe2@gmail.com
 
 password: jondoe2
 
 username: jondoe@gmail.com
+
 password: jondoe
+
 
 Docker settings:
 To creat docker image
 >docker build --tag mytodo .
+
 >docker run -p 3000:3000 mytodo
+
 >docker-compose up
