@@ -37,8 +37,10 @@ Things you may want to cover:
 
 Ruby 3.0.3
 
+
 * System dependencies
 rails 7.0.4
+
 
 * Configuration
 
@@ -49,6 +51,7 @@ rails 7.0.4
 >rake db:migrate
 
 * Database initialization
+
 
 * How to run the test suite
 >bundle add rspec
@@ -61,7 +64,18 @@ rails 7.0.4
 type in command prompt: rspec 
 * Services (job queues, cache servers, search engines, etc.)
 
+
 * Deployment instructions
+>heroku login
+
+>heroku create
+
+>heroku rename todo-app
+
+>git push heroku main
+
+>heroku run rails db:migrate
+
 
 # todo-app-jwt-authentication
 
