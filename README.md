@@ -42,17 +42,21 @@ rails 7.0.4
 
 * Configuration
 
-bundle install
+>bundle install
 
 
 * Database creation
-rake db:migrate
+>rake db:migrate
 
 * Database initialization
 
 * How to run the test suite
-bundle add rspec
-rails g rspec:install
+>bundle add rspec
+
+>rails g rspec:install
+
+>rspec
+
 
 type in command prompt: rspec 
 * Services (job queues, cache servers, search engines, etc.)
