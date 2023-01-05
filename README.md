@@ -1,5 +1,5 @@
 # README
-This is todo app used for creating task. It can be hosted on heroku using a postgresql database. It implements a CRUD structure( that is creat, read, update and delete) for data and has soft deletes(using discard gem),. It is set to use Javascript web tokens(JWT) using the devise-jwt gem(segment of commented code for testing JWT if using API is included). It has been tested with postman and commented code is included for registering, logging in and signing out if testing the API.
+This is todo app used for creating task. It can be hosted on heroku using a postgresql database. It implements a CRUD structure( that is creat, read, update and delete) for data and has soft deletes(using discard gem). It is set to use Javascript web tokens(JWT) using the devise-jwt gem(segment of commented code for testing JWT if using API is included). It has been tested with postman and commented code is included for registering, logging in and signing out if testing the API.
 
 
 
@@ -39,6 +39,7 @@ Ruby 3.0.3
 
 
 * System dependencies
+
 rails 7.0.4
 
 
