@@ -63,9 +63,11 @@ type in command prompt: rspec
 
 User Login details
 
+
 username: jondoe2@gmail.com
 
 password: jondoe2
+
 
 username: jondoe@gmail.com
 
@@ -73,6 +75,7 @@ password: jondoe
 
 
 Docker settings:
+
 To creat docker image
 >docker build --tag mytodo .
 
