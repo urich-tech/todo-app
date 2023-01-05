@@ -69,8 +69,6 @@ username: jondoe2@gmail.com
 password: jondoe2
 
 
-
-
 username: jondoe@gmail.com
 
 password: jondoe
