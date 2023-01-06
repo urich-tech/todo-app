@@ -53,6 +53,12 @@ rails 7.0.4
 
 * Database initialization
 
+* Troubleshoot
+If having error: abort rails! key not found:secret_key_base
+clear or delete master.key and credentials.yml
+run if using linux machine
+>EDITOR="nano --wait" rails credentials:edit
+
 
 * How to run the test suite
 >bundle add rspec
