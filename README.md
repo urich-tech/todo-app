@@ -1,5 +1,5 @@
 # README
-This is todo app used for creating task. It can be hosted on heroku using a postgresql database. It implements soft deletes, CRUD structure(that is creat, read, update and delete) for data. It is set to use Javascript web tokens(JWT) using the devise-jwt gem(segment of commented code for testing JWT if using API is included). It has been tested with postman and commented code is included for registering, logging in and signing out if testing the API.
+This is todo app used for creating task. It can be hosted on heroku using a postgresql database. It implements a CRUD structure( that is creat, read, update and delete) for data and has soft deletes(using discard gem). It is set to use Javascript web tokens(JWT) using the devise-jwt gem(segment of commented code for testing JWT if using API is included). It has been tested with postman and commented code is included for registering, logging in and signing out if testing the API.
 
 
 
@@ -37,31 +37,69 @@ Things you may want to cover:
 
 Ruby 3.0.3
 
+
 * System dependencies
+
 rails 7.0.4
+
 
 * Configuration
 
-bundle install
+>bundle install
 
 
 * Database creation
-rake db:migrate
+>rake db:migrate
 
 * Database initialization
 
+
 * How to run the test suite
-bundle add rspec
-rails g rspec:install
+>bundle add rspec
+
+>rails g rspec:install
+
+>rspec
+
 
 type in command prompt: rspec 
 * Services (job queues, cache servers, search engines, etc.)
 
+
 * Deployment instructions
+>heroku login
+
+>heroku create
+
+>heroku rename todo-app
+
+>git push heroku main
+
+>heroku run rails db:migrate
+
 
 # todo-app-jwt-authentication
+
+User Login details
 
 
 username: jondoe2@gmail.com
 
 password: jondoe2
+
+
+username: jondoe@gmail.com
+
+password: jondoe
+
+
+
+
+Docker settings:
+
+To creat docker image
+>docker build --tag mytodo .
+
+>docker run -p 3000:3000 mytodo
+
+>docker-compose up
