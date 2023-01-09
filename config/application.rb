@@ -26,6 +26,6 @@ module TodoDemo1
 
     #needed for running with postman test    
     config.action_controller.default_protect_from_forgery = false # unless ENV["RAILS_ENV"] == "production"
-    config.hosts << "todo-app-1-production-6619.up.railway.app"
+  
   end
 end
