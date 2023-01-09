@@ -92,6 +92,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  config.hosts << "todo-app-1-production-6619.up.railway.app"
+  
 end
